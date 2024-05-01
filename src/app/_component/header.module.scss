@@ -1,0 +1,19 @@
+.header_container {
+    height: 64px;
+    width: 100%;
+    color: white;
+    background-color: #032038;
+    padding: 3vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    .header_logo {
+        font-weight: bold;
+        size: 35px;
+        background: linear-gradient(to right, #8ecea1, #04b0e1);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+}
