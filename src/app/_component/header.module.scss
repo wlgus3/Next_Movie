@@ -1,13 +1,14 @@
 .header_container {
     height: 64px;
-    width: 100%;
+    width: 100dvw;
     color: white;
     background-color: #032038;
-    padding: 3vw;
+    padding: 0 3vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    z-index: 1;
     .header_logo {
         font-weight: bold;
         size: 35px;

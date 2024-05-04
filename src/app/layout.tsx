@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./_component/Header";
+import ReactQueryProvider from "./_component/ReactQueryProvider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,14 +18,15 @@ type Props = {
 export default function RootLayout({ children, modal }: Props) {
     return (
         <html lang="en">
-            <body className={inter.className}>
-                <Header />
-                <div className="pt-[64px]">
-                {modal}
-                {children}
-                </div>
-                
-            </body>
+            <ReactQueryProvider>
+                <body className={inter.className}>
+                    <Header />
+                    <div className="pt-[64px] flex ">
+                        {modal}
+                        {children}
+                    </div>
+                </body>
+            </ReactQueryProvider>
         </html>
     );
 }

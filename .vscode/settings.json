@@ -1,6 +1,6 @@
 {
     "eslint.format.enable": true,
-    "vetur.format.options.tabSize": 4,
+    "vetur.format.options.tabSize": 2,
     "vetur.format.options.useTabs": true,
     "editor.defaultFormatter": null,
     "[typescriptreact]": {
@@ -24,6 +24,10 @@
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.tabSize": 2,
+    "[typescript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     }
 }

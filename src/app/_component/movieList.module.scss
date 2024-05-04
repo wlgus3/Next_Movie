@@ -1,0 +1,19 @@
+.movie_list_container {
+  width: 90dvw;
+}
+
+.itemWrap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  grid-gap: 15px;
+}
+
+.poster {
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  background-color:#032038;
+  // transition: opacity 0.1s ease;
+  border-radius: 10px;
+}
