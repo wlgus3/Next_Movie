@@ -5,7 +5,8 @@ import { getMovieDetail, getDetailMovie, getCredits } from "@/api/index";
 import Image from "next/image";
 import styles from "./movieDetail.module.scss";
 import RatingCircle from "./RatingCircle";
-
+import CastSwiper from "./CastSwiper";
+import { ConnectionClosedEvent } from "mongodb";
 export default function MovieDetail() {
   const params = useParams();
   const movieId = params.id;
@@ -15,13 +16,6 @@ export default function MovieDetail() {
     queryFn: () => getDetailMovie(movieId),
     enabled: !!movieId, // movieId가 있을 때만 쿼리를 실행합니다.
   });
-
-  const credits = useQuery({
-    queryKey: ["credits", +movieId],
-    queryFn: () => getCredits(+movieId),
-    enabled: !!movieId,
-  });
-  console.log("credits", credits.data);
 
   if (isLoading) return <div>Loading...</div>; // 데이터 로딩 중 UI
   if (isError) return <div>Error loading movie details.</div>; // 오류 발생 시 UI
@@ -69,7 +63,7 @@ export default function MovieDetail() {
       </div>
       <div className={styles.content_wrapper}>
         <h3 className="text-lg font-bold">주요 출연진</h3>
-        <div className={styles.people_scroller}>인물</div>
+        <CastSwiper />
       </div>
     </div>
   );
