@@ -19,6 +19,7 @@
 body {
   color: rgb(var(--foreground-rgb));
   width: 100dvw;
+  font-size: 12px;
 
   /* background: linear-gradient(
       to bottom,

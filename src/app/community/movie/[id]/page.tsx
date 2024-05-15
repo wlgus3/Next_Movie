@@ -6,15 +6,14 @@ export default async function page({ params: { id: movieId } }: { params: { id: 
   const queryClient = new QueryClient();
 
   //아래의 의미 : 이 key를 갖고있을때 이 Fn을 실행해라
-  await queryClient.prefetchQuery({ querKey: ["movieDetail", +movieId], queryFn: movieId ? () => getDetailMovie(+movieId) : undefined });
+  await queryClient.prefetchQuery({ queryKey: ["movieDetail", +movieId], queryFn: movieId ? () => getDetailMovie(+movieId) : undefined });
   const dehydratedState = dehydrate(queryClient);
 
   queryClient.getQueryData(["movieDetail"]);
   return (
-    <main className="flex min-h-screen p-7">
+    <main className="flex min-h-screen py-7">
       <HydrationBoundary state={dehydratedState}>
         <div className="flex-column">
-          <div className="text-lg font-bold pb-2">MovieDetail</div>
           <MovieDetail />
         </div>
       </HydrationBoundary>

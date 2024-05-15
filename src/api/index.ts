@@ -34,3 +34,14 @@ export const getDetailMovie = async (movieId: number) => {
     });
     return response.data;
 };
+
+export const getCredits = async (movieId: number) => {
+  const response = await axios.get(`${URL}/movie/${movieId}/credits`, {
+      params: {
+          api_key: process.env.NEXT_PUBLIC_TMDB_API_KEY_AUTH,
+          language: "ko-kr",
+          page: 1,
+      },
+  });
+  return response.data;
+};
