@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "./_component/Header";
 import ReactQueryProvider from "./_component/ReactQueryProvider";
+import { Providers } from "./providers";
+import { fonts } from "./fonts";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -17,16 +20,18 @@ type Props = {
 
 export default function RootLayout({ children, modal }: Props) {
     return (
-        <html lang="en">
-            <ReactQueryProvider>
-                <body className={inter.className}>
-                    <Header />
-                    <div className="pt-[64px] flex ">
-                        {modal}
-                        {children}
-                    </div>
-                </body>
-            </ReactQueryProvider>
-        </html>
+      <html lang="en" className={fonts.rubik.variable}>
+        <ReactQueryProvider>
+          <Providers>
+            <body className={inter.className}>
+              <Header />
+              <div className="pt-[64px] flex ">
+                {modal}
+                {children}
+              </div>
+            </body>
+          </Providers>
+        </ReactQueryProvider>
+      </html>
     );
 }
